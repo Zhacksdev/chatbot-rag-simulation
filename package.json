@@ -1,0 +1,21 @@
+{
+  "name": "brodo-rag-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website katalog Brodo Official Shop + chatbot RAG + gateway WhatsApp",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "wa": "node wa-gateway.js",
+    "test": "node --test",
+    "import": "node scripts/import-csv.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "groq-sdk": "^0.9.0",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.26.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

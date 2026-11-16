@@ -1,0 +1,385 @@
+/* Warna brand diambil langsung dari logo resmi (logo/logo-brodo.webp): #003042 */
+:root {
+  --brand: #003042;
+  --brand-dark: #00212e;
+  --ink: #003042;
+  --ink-soft: #6b7b83;
+  --line: #e2e6e8;
+  --bg: #ffffff;
+  --bg-soft: #f4f6f7;
+  --sale: #c0392b;
+  --wa: #25d366;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+.muted { color: var(--ink-soft); }
+
+/* Bar pengumuman */
+.announce {
+  background: var(--brand);
+  color: #fff;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  padding: 9px 16px;
+}
+
+/* Header */
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 72px;
+}
+.logo { flex: none; line-height: 0; }
+.logo img { height: 34px; width: auto; }
+
+.mainnav { display: flex; gap: 28px; flex: 1; }
+.navlink {
+  background: none;
+  border: 0;
+  padding: 6px 0;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+.navlink:hover { border-bottom-color: var(--brand); }
+
+.toplink {
+  flex: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fff;
+  background: var(--brand);
+  text-decoration: none;
+  padding: 11px 20px;
+}
+.toplink:hover { background: var(--brand-dark); }
+
+/* Hero: foto running + lapisan gelap. Lapisan ini bukan hiasan — tanpanya
+   teks putih tidak terbaca di atas langit yang terang. Kepekatannya dipilih
+   agar kontras teks putih tetap di atas 4.5:1 (syarat WCAG AA). */
+.hero {
+  background:
+    linear-gradient(rgba(0, 32, 44, 0.74), rgba(0, 32, 44, 0.62)),
+    url("hero-running.webp") center / cover no-repeat;
+  border-bottom: 1px solid var(--brand);
+}
+.hero-inner { padding: 108px 24px 116px; max-width: 760px; margin: 0 auto; text-align: center; }
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.72);
+}
+.hero h1 {
+  margin: 0 0 18px;
+  font-size: clamp(30px, 5vw, 50px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+}
+.hero-sub {
+  margin: 0 auto 28px; max-width: 54ch; font-size: 15px;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Di atas hero gelap, tombol dibalik: isi putih untuk aksi utama, garis
+   putih untuk aksi kedua. */
+.hero .btn-primary { background: #fff; color: var(--brand); }
+.hero .btn-primary:hover { background: rgba(255, 255, 255, 0.86); }
+.hero .btn-secondary {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.75);
+  color: #fff;
+}
+.hero .btn-secondary:hover { background: #fff; border-color: #fff; color: var(--brand); }
+
+.btn-primary {
+  font-family: inherit;
+  background: var(--brand);
+  color: #fff;
+  border: 0;
+  padding: 15px 36px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--brand-dark); }
+
+.hero-actions {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+
+/* Tombol sekunder: dibuat bergaris, bukan hijau penuh, supaya hero tetap
+   bersih dan "TANYA ASISTEN" tetap jadi aksi utama. */
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: #fff;
+  border: 1px solid var(--brand);
+  color: var(--brand);
+  text-decoration: none;
+  padding: 14px 30px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.btn-secondary:hover { background: var(--brand); color: #fff; }
+.btn-secondary.hidden { display: none; }
+
+/* Bar statistik */
+.statsbar { border-bottom: 1px solid var(--line); }
+.statsbar-inner { display: flex; gap: 0; }
+.stat {
+  flex: 1;
+  min-width: 0; /* tanpa ini, rentang harga yang panjang melebarkan halaman */
+  padding: 24px 16px;
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+.stat:last-child { border-right: 0; }
+.stat strong {
+  display: block; font-size: 22px; font-weight: 800; letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+.stat span { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; color: var(--ink-soft); }
+
+/* Katalog */
+.catalog { padding: 56px 24px 80px; }
+.catalog-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap; margin-bottom: 22px;
+}
+.catalog-head h2 {
+  margin: 0; font-size: 15px; font-weight: 800; letter-spacing: 0.14em;
+}
+#searchBox {
+  font-family: inherit;
+  border: 1px solid var(--line);
+  padding: 11px 16px;
+  font-size: 14px;
+  min-width: 260px;
+  color: var(--ink);
+}
+#searchBox:focus { outline: none; border-color: var(--brand); }
+
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.chip {
+  font-family: inherit;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink-soft);
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.chip:hover { border-color: var(--brand); color: var(--brand); }
+.chip.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+.grid {
+  display: grid;
+  gap: 36px 24px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+
+/* Kartu produk: gambar -> nama -> harga, mengikuti urutan di bro.do */
+.card { display: flex; flex-direction: column; }
+.card-imgwrap {
+  background: var(--bg-soft);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.card-img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.45s ease;
+}
+.card:hover .card-img { transform: scale(1.05); }
+
+.card-cat {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+  color: var(--ink-soft); text-transform: uppercase; margin-bottom: 6px;
+}
+.card h3 {
+  margin: 0 0 8px; font-size: 14px; font-weight: 600; line-height: 1.45;
+}
+.card-price { font-size: 15px; font-weight: 700; }
+.card-rating { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+
+/* margin-top:auto menjaga tombol tetap sejajar antar kartu walau judul
+   produknya ada yang satu baris dan ada yang dua baris. */
+.card-actions { margin-top: auto; padding-top: 12px; display: flex; gap: 8px; }
+.btn-wa, .btn-ghost {
+  flex: 1; text-align: center; text-decoration: none;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  padding: 10px 8px;
+}
+.btn-wa { background: var(--brand); color: #fff; }
+.btn-wa:hover { background: var(--brand-dark); }
+.btn-ghost { border: 1px solid var(--line); color: var(--ink-soft); }
+.btn-ghost:hover { border-color: var(--brand); color: var(--brand); }
+
+/* Footer */
+.footer { background: var(--brand); color: #fff; padding: 56px 0 72px; }
+.footer-inner { text-align: center; }
+.footer-logo { margin: 0 auto 20px; filter: brightness(0) invert(1); height: 30px; width: auto; }
+.footer p { margin: 6px 0; font-size: 13px; color: rgba(255, 255, 255, 0.78); }
+.footer a { color: #fff; }
+.disclaimer { font-size: 12px !important; color: rgba(255, 255, 255, 0.55) !important; }
+
+/* Widget chat */
+.chat-toggle {
+  position: fixed; right: 24px; bottom: 24px; z-index: 50;
+  width: 56px; height: 56px; border: 0; border-radius: 50%;
+  background: var(--brand); color: #fff; cursor: pointer;
+  display: grid; place-items: center;
+  box-shadow: 0 8px 24px rgba(0, 48, 66, 0.3);
+}
+.chat-toggle:hover { background: var(--brand-dark); }
+
+.chat-panel {
+  position: fixed; right: 24px; bottom: 92px; z-index: 50;
+  width: min(390px, calc(100vw - 32px));
+  height: min(580px, calc(100vh - 150px));
+  background: #fff; border: 1px solid var(--line);
+  display: flex; flex-direction: column; overflow: hidden;
+  box-shadow: 0 20px 56px rgba(0, 33, 46, 0.22);
+}
+.chat-panel.hidden { display: none; }
+
+.chat-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 18px; background: var(--brand); color: #fff;
+}
+.chat-head-text strong { font-size: 12px; font-weight: 800; letter-spacing: 0.14em; }
+.chat-sub { display: block; font-size: 11px; opacity: 0.75; margin-top: 2px; }
+.chat-close {
+  background: none; border: 0; color: #fff; font-size: 26px;
+  cursor: pointer; line-height: 1; padding: 0 4px;
+}
+
+.chat-log {
+  flex: 1; overflow-y: auto; padding: 18px;
+  display: flex; flex-direction: column; gap: 12px;
+  background: var(--bg-soft);
+}
+
+.bubble {
+  max-width: 86%; padding: 11px 15px;
+  font-size: 14px; line-height: 1.5;
+  white-space: pre-wrap; word-wrap: break-word;
+}
+.bubble.bot { background: #fff; border: 1px solid var(--line); align-self: flex-start; }
+.bubble.user { background: var(--brand); color: #fff; align-self: flex-end; }
+.bubble.typing { color: var(--ink-soft); font-style: italic; }
+.bubble a { color: inherit; }
+
+/* Kartu produk di dalam chat: gambar, nama, harga, tombol pesan */
+.chat-cards { display: flex; flex-direction: column; gap: 10px; align-self: stretch; }
+.chat-card {
+  display: flex; gap: 12px; padding: 10px;
+  background: #fff; border: 1px solid var(--line);
+}
+.chat-card-img {
+  width: 72px; height: 72px; flex: none;
+  object-fit: cover; background: var(--bg-soft);
+}
+.chat-card-body { min-width: 0; display: flex; flex-direction: column; gap: 3px; flex: 1; }
+.chat-card-name {
+  font-size: 13px; font-weight: 600; line-height: 1.35;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.chat-card-price { font-size: 14px; font-weight: 700; }
+.chat-card-meta { font-size: 11px; color: var(--ink-soft); }
+.chat-card-wa {
+  margin-top: 4px; align-self: flex-start; text-decoration: none;
+  background: var(--wa); color: #fff;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  padding: 7px 13px;
+}
+.chat-card-wa:hover { filter: brightness(0.93); }
+
+.chat-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--line); background: #fff; }
+#chatInput {
+  flex: 1; min-width: 0; font-family: inherit;
+  border: 1px solid var(--line); padding: 11px 14px; font-size: 14px; color: var(--ink);
+}
+#chatInput:focus { outline: none; border-color: var(--brand); }
+#chatSend {
+  border: 0; background: var(--brand); color: #fff;
+  padding: 0 18px; cursor: pointer; display: grid; place-items: center;
+}
+#chatSend:hover { background: var(--brand-dark); }
+#chatSend:disabled { opacity: 0.5; cursor: default; }
+
+@media (max-width: 760px) {
+  .wrap { padding: 0 16px; }
+  .topbar-inner { height: auto; padding-top: 14px; padding-bottom: 14px; flex-wrap: wrap; gap: 12px; }
+  .mainnav { order: 3; width: 100%; gap: 18px; }
+  .announce { font-size: 10px; letter-spacing: 0.1em; }
+  .hero-inner { padding: 44px 16px 48px; }
+  /* Ditumpuk dengan lebar sama supaya tidak terlihat timpang. */
+  .hero-actions { flex-direction: column; }
+  .btn-primary, .btn-secondary { justify-content: center; text-align: center; }
+
+  /* Di layar sempit statistik ditumpuk: rentang harga terlalu panjang untuk
+     dibagi tiga kolom. */
+  .statsbar-inner { flex-direction: column; }
+  .stat {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 16px;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    text-align: left;
+  }
+  .stat:last-child { border-bottom: 0; }
+  .stat strong { font-size: 18px; }
+
+  .catalog { padding: 40px 16px 64px; }
+  #searchBox { min-width: 0; width: 100%; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
+  .card h3 { font-size: 13px; }
+  .card-actions { flex-direction: column; }
+
+  .chat-panel { right: 12px; bottom: 86px; }
+  .chat-toggle { right: 16px; bottom: 16px; }
+}
